@@ -14,7 +14,7 @@ class HomeController: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.title = "Home"
         collectionView?.backgroundColor = UIColor.darkGray
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
     }
     
 
@@ -40,5 +40,8 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width, height: 200)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
 }
