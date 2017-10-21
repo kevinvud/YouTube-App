@@ -14,7 +14,7 @@ class VideoCell: UICollectionViewCell {
         let imageView = UIImageView()
         let imageName = UIImage(named: "taylor_swift_blank_space")
         imageView.image = imageName
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -24,7 +24,7 @@ class VideoCell: UICollectionViewCell {
     
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor(displayP3Red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
         
@@ -32,7 +32,9 @@ class VideoCell: UICollectionViewCell {
     
     let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.gray
+        imageView.image = UIImage(named: "taylor_swift_profile")
+        imageView.layer.cornerRadius = 22
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
         
@@ -40,7 +42,7 @@ class VideoCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor.purple
+        label.text = "Taylor Swift - Blank Space"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
         
@@ -49,8 +51,12 @@ class VideoCell: UICollectionViewCell {
     
     let subtitleTextView: UITextView = {
        let tv = UITextView()
-        tv.backgroundColor = UIColor.red
         tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.backgroundColor = UIColor.clear
+        tv.text = "TaylorSwiftVEVO - 1,604,800,999 views - 2 years ago"
+        tv.textContainerInset = UIEdgeInsetsMake(0, -4, 0, 0)
+        tv.textColor = UIColor.lightGray
+        tv.isEditable = false
         return tv
   
     }()
@@ -91,10 +97,10 @@ class VideoCell: UICollectionViewCell {
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         titleLabel.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor, constant: 8).isActive = true
         
-        subtitleTextView.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -16).isActive = true
+        subtitleTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = true
         subtitleTextView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         subtitleTextView.leftAnchor.constraint(equalTo: userProfileImageView.rightAnchor, constant: 8).isActive = true
-        subtitleTextView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        subtitleTextView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         
     }

@@ -22,6 +22,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        
+        //get rid of black bar underneath nav bar
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        application.statusBarStyle = .lightContent
+        
+        let statusBarBackgrounView = UIView()
+        statusBarBackgrounView.backgroundColor = UIColor.rgb(194, green: 31, blue: 31)
+        statusBarBackgrounView.translatesAutoresizingMaskIntoConstraints = false
+        window?.addSubview(statusBarBackgrounView)
+        statusBarBackgrounView.topAnchor.constraint(equalTo: (window?.topAnchor)!).isActive = true
+        statusBarBackgrounView.leftAnchor.constraint(equalTo: (window?.leftAnchor)!).isActive = true
+        statusBarBackgrounView.rightAnchor.constraint(equalTo: (window?.rightAnchor)!).isActive = true
+        statusBarBackgrounView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        
         return true
     }
 

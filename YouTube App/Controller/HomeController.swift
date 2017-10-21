@@ -12,11 +12,35 @@ class HomeController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
-        collectionView?.backgroundColor = UIColor.darkGray
+        collectionView?.backgroundColor = UIColor.white
+        navigationController?.navigationBar.isTranslucent = false
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
+        titleLabel.text = "Home"
+        titleLabel.textColor = UIColor.white
+        navigationItem.titleView = titleLabel
+        
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
+        
+        setupMenuBar()
     }
     
+    lazy var menuBar: MenuBar = {
+        let mb = MenuBar()
+        mb.translatesAutoresizingMaskIntoConstraints = false
+        return mb
+    }()
+    
+    private func setupMenuBar(){
+        view.addSubview(menuBar)
+        
+        menuBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        menuBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        menuBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        menuBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
 
 
 }
@@ -37,7 +61,8 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        let height = (view.frame.width - 16 - 16) * 9 / 16
+        return CGSize(width: view.frame.width, height: height + 16 + 44 + 8 + 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
