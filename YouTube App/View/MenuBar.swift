@@ -19,6 +19,7 @@ class MenuBar: UIView {
         cv.delegate = self
         return cv
     }()
+    
     let cellId = "cellId"
     let imageNames = ["home","trending","subscriptions", "account"]
     
@@ -49,7 +50,7 @@ class MenuBar: UIView {
 extension MenuBar: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return imageNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

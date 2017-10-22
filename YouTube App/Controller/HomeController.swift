@@ -10,29 +10,9 @@ import UIKit
 
 class HomeController: UICollectionViewController {
 
-//    var videos: [Video] = {
-//        var kanyeChannel = Channel()
-//        kanyeChannel.name = "KanyeChannel"
-//        kanyeChannel.profileImageName = "kanye_profile"
-//
-//        var blankSpaceVideo = Video()
-//        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-//        blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-//        blankSpaceVideo.channel = kanyeChannel
-//        blankSpaceVideo.numberOfViews = 2999999992
-//
-//        var badBloodVideo = Video()
-//        badBloodVideo.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-//        badBloodVideo.thumbnailImageName = "taylor_swift_bad_blood"
-//        badBloodVideo.channel = kanyeChannel
-//        badBloodVideo.numberOfViews = 89998777763
-//
-//        return [blankSpaceVideo, badBloodVideo]
-//
-//
-//    }()
     
     var videos: [Video]?
+    let settingsLauncher = SettingsLauncher()
     
     
     func fetchVideos(){
@@ -106,17 +86,14 @@ class HomeController: UICollectionViewController {
         
         navigationItem.rightBarButtonItems = [moreButton, searchBarButtonItem]
     }
-    
+
     @objc func handleSearch(){
         
         
     }
-    
     @objc func handleMore(){
-        
-        
+        settingsLauncher.showSettings()
     }
-    
     
     private func setupMenuBar(){
         view.addSubview(menuBar)
