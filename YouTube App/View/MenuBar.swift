@@ -29,11 +29,13 @@ class MenuBar: UIView {
         addSubview(collectionView)
         
         let selectedIndexPath = IndexPath(item: 0, section: 0)
+        
         collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredHorizontally)
+        
         
         
     }
