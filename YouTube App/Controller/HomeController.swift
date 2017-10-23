@@ -12,7 +12,14 @@ class HomeController: UICollectionViewController {
 
     
     var videos: [Video]?
-    let settingsLauncher = SettingsLauncher()
+    
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+        
+        
+    }()
     
     
     func fetchVideos(){
@@ -55,12 +62,14 @@ class HomeController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.white
+        
         navigationController?.navigationBar.isTranslucent = false
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.text = "Home"
         titleLabel.textColor = UIColor.white
         navigationItem.titleView = titleLabel
+        
         
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
@@ -93,6 +102,17 @@ class HomeController: UICollectionViewController {
     }
     @objc func handleMore(){
         settingsLauncher.showSettings()
+    }
+    
+    func showControllerForSettings(setting: MenuSettingItems) {
+        let dummySettingsViewController = UIViewController()
+        dummySettingsViewController.view.backgroundColor = UIColor.white
+        dummySettingsViewController.navigationItem.title = setting.name
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.pushViewController(dummySettingsViewController, animated: true)
+        
+        
     }
     
     private func setupMenuBar(){
@@ -137,5 +157,6 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
     
 }
