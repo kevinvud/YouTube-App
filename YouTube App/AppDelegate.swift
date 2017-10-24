@@ -33,11 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let statusBarBackgrounView = UIView()
         statusBarBackgrounView.backgroundColor = UIColor.rgb(194, green: 31, blue: 31)
         statusBarBackgrounView.translatesAutoresizingMaskIntoConstraints = false
-        window?.addSubview(statusBarBackgrounView)
-        statusBarBackgrounView.topAnchor.constraint(equalTo: (window?.topAnchor)!).isActive = true
-        statusBarBackgrounView.leftAnchor.constraint(equalTo: (window?.leftAnchor)!).isActive = true
-        statusBarBackgrounView.rightAnchor.constraint(equalTo: (window?.rightAnchor)!).isActive = true
-        statusBarBackgrounView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        
+//        window?.addSubview(statusBarBackgrounView)
+//        statusBarBackgrounView.topAnchor.constraint(equalTo: (window?.topAnchor)!).isActive = true
+//        statusBarBackgrounView.leftAnchor.constraint(equalTo: (window?.leftAnchor)!).isActive = true
+//        statusBarBackgrounView.rightAnchor.constraint(equalTo: (window?.rightAnchor)!).isActive = true
+//        statusBarBackgrounView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         return true
     }

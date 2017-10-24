@@ -77,7 +77,6 @@ class VideoCell: UICollectionViewCell {
         
         didSet{
             titleLabel.text = video?.title
-            
             if let thumbnailImage = video?.thumbnailImageName{
                 thumbnailImageView.image = UIImage(named: thumbnailImage)
             }

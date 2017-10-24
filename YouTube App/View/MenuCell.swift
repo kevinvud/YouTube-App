@@ -47,8 +47,8 @@ class MenuCell: UICollectionViewCell {
         backgroundColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
         addSubview(imageView)
         
-        imageView.widthAnchor.constraint(equalToConstant: 28).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
